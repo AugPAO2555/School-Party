@@ -1,4 +1,4 @@
-// Accordion
+// ===== ACCORDION =====
 document.querySelectorAll(".accordion").forEach(btn => {
   btn.addEventListener("click", () => {
     const panel = btn.nextElementSibling;
@@ -6,84 +6,100 @@ document.querySelectorAll(".accordion").forEach(btn => {
       panel.style.display === "block" ? "none" : "block";
   });
 });
+
+// ===== PROFILE =====
 const data = {
-  1: {
-    name: "นาย A",
-    role: "ประธานนักเรียน",
-    bio: "มีวิสัยทัศน์ พัฒนาโรงเรียน",
-    img: "https://picsum.photos/200/300"
-  },
-  2: {
-    name: "นาย B",
-    role: "รองประธาน",
-    bio: "ดูแลนักเรียนทุกคน",
-    img: "https://picsum.photos/200/301"
-  },
-  3: {
-    name: "นาย C",
-    role: "เลขาธิการ",
-    bio: "บริหารงานเอกสาร",
-    img: "https://picsum.photos/200/302"
-  }
+  1: { name: "นาย A", role: "ประธานนักเรียน", bio: "มีวิสัยทัศน์", img: "https://picsum.photos/200/300" },
+  2: { name: "นาย B", role: "รองประธาน", bio: "ดูแลนักเรียน", img: "https://picsum.photos/200/301" },
+  3: { name: "นาย C", role: "เลขาธิการ", bio: "บริหารงาน", img: "https://picsum.photos/200/302" }
 };
 
 function openProfile(id) {
   const user = data[id];
-
   document.getElementById("p-name").innerText = user.name;
   document.getElementById("p-role").innerText = user.role;
   document.getElementById("p-bio").innerText = user.bio;
   document.getElementById("p-img").src = user.img;
-
   document.getElementById("popup").style.display = "block";
 }
 
 function closePopup() {
   document.getElementById("popup").style.display = "none";
 }
+
+// ===== POSTS SYSTEM =====
 let posts = JSON.parse(localStorage.getItem("posts")) || [];
 
+// เปิด/ปิดฟอร์ม
 function openForm() {
   document.getElementById("formPopup").style.display = "block";
 }
-
 function closeForm() {
   document.getElementById("formPopup").style.display = "none";
 }
 
+// เพิ่มโพสต์
 function addPost() {
   const title = document.getElementById("title").value;
   const date = document.getElementById("date").value;
   const image = document.getElementById("image").value;
   const detail = document.getElementById("detail").value;
 
-  const post = { title, date, image, detail };
+  if (!title || !date || !image || !detail) {
+    alert("กรอกให้ครบ");
+    return;
+  }
 
-  posts.push(post);
+  const post = { id: Date.now(), title, date, image, detail };
+
+  posts.unshift(post); // ใหม่อยู่บนสุด
   localStorage.setItem("posts", JSON.stringify(posts));
 
   location.reload();
 }
 
+// โหลดโพสต์
 function loadPosts() {
   const container = document.getElementById("news");
+  if (!container) return;
 
-  posts.reverse().forEach((p, i) => {
+  container.innerHTML = "";
+
+  posts.forEach((p) => {
     container.innerHTML += `
       <div class="card">
         <img src="${p.image}">
         <p>${p.date}</p>
         <h3>${p.title}</h3>
-        <button onclick="viewPost(${i})">อ่านต่อ</button>
+        <a href="post.html?id=${p.id}" class="btn">อ่านต่อ</a>
       </div>
     `;
   });
 }
 
-function viewPost(i) {
-  const p = posts[i];
+// ===== หน้าอ่านข่าว =====
+function loadPostDetail() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
 
-  alert(p.title + "\n\n" + p.detail);
+  const post = posts.find(p => p.id == id);
+  if (!post) return;
+
+  document.getElementById("d-img").src = post.image;
+  document.getElementById("d-title").innerText = post.title;
+  document.getElementById("d-date").innerText = post.date;
+  document.getElementById("d-detail").innerText = post.detail;
 }
 
-window.onload = loadPosts;
+// ===== ADMIN MODE =====
+let isAdmin = true; // เปลี่ยนเป็น false = ซ่อนปุ่ม
+
+window.onload = () => {
+  loadPosts();
+  loadPostDetail();
+
+  const btn = document.getElementById("addBtn");
+  if (btn) {
+    btn.style.display = isAdmin ? "block" : "none";
+  }
+};
