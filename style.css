@@ -197,3 +197,4 @@ body {
     grid-template-columns: 1fr;
   }
 }
+<button id="addBtn" class="add-btn" onclick="openForm()">+</button>
