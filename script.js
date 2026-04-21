@@ -103,3 +103,25 @@ window.onload = () => {
     btn.style.display = isAdmin ? "block" : "none";
   }
 };
+// ===== LOGIN =====
+function login() {
+  const pass = document.getElementById("password").value;
+
+  if (pass === "admin123") {
+    localStorage.setItem("isAdmin", "true");
+    window.location.href = "index.html";
+  } else {
+    document.getElementById("error").innerText = "รหัสผิด";
+  }
+}
+
+// เช็คสถานะ
+function checkAdmin() {
+  return localStorage.getItem("isAdmin") === "true";
+}
+
+// logout
+function logout() {
+  localStorage.removeItem("isAdmin");
+  location.reload();
+}
