@@ -41,3 +41,49 @@ function openProfile(id) {
 function closePopup() {
   document.getElementById("popup").style.display = "none";
 }
+let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+function openForm() {
+  document.getElementById("formPopup").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("formPopup").style.display = "none";
+}
+
+function addPost() {
+  const title = document.getElementById("title").value;
+  const date = document.getElementById("date").value;
+  const image = document.getElementById("image").value;
+  const detail = document.getElementById("detail").value;
+
+  const post = { title, date, image, detail };
+
+  posts.push(post);
+  localStorage.setItem("posts", JSON.stringify(posts));
+
+  location.reload();
+}
+
+function loadPosts() {
+  const container = document.getElementById("news");
+
+  posts.reverse().forEach((p, i) => {
+    container.innerHTML += `
+      <div class="card">
+        <img src="${p.image}">
+        <p>${p.date}</p>
+        <h3>${p.title}</h3>
+        <button onclick="viewPost(${i})">อ่านต่อ</button>
+      </div>
+    `;
+  });
+}
+
+function viewPost(i) {
+  const p = posts[i];
+
+  alert(p.title + "\n\n" + p.detail);
+}
+
+window.onload = loadPosts;
