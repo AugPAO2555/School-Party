@@ -1,1 +1,29 @@
- 
+<div class="grid">
+
+<div class="card" onclick="openProfile(1)">
+  <img src="https://picsum.photos/200/300">
+  <p>นาย A<br>ประธานนักเรียน</p>
+</div>
+
+<div class="card" onclick="openProfile(2)">
+  <img src="https://picsum.photos/200/301">
+  <p>นาย B<br>รองประธาน</p>
+</div>
+
+<div class="card" onclick="openProfile(3)">
+  <img src="https://picsum.photos/200/302">
+  <p>นาย C<br>เลขาธิการ</p>
+</div>
+
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span onclick="closePopup()" class="close">✖</span>
+    <img id="p-img">
+    <h2 id="p-name"></h2>
+    <h4 id="p-role"></h4>
+    <p id="p-bio"></p>
+  </div>
+</div> 
