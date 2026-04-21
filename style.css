@@ -209,3 +209,32 @@ hr {
   padding: 15px;
   border-left: 3px solid #1B97F9;
 }
+/* POPUP */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: none;
+}
+
+.popup-content {
+  background: #161b22;
+  padding: 20px;
+  margin: 10% auto;
+  width: 300px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.popup img {
+  width: 120px;
+  border-radius: 10px;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+}
