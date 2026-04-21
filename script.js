@@ -126,3 +126,25 @@ function logout() {
   localStorage.removeItem("isAdmin");
   location.reload();
 }
+function updateNav() {
+  const isAdmin = checkAdmin();
+
+  const loginBtn = document.getElementById("loginBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  if (!loginBtn || !logoutBtn) return;
+
+  loginBtn.style.display = isAdmin ? "none" : "inline";
+  logoutBtn.style.display = isAdmin ? "inline" : "none";
+}
+
+window.onload = () => {
+  loadPosts();
+  loadPostDetail();
+  updateNav();
+
+  const btn = document.getElementById("addBtn");
+  if (btn) {
+    btn.style.display = checkAdmin() ? "block" : "none";
+  }
+};
