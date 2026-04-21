@@ -215,3 +215,16 @@ body {
   width: 300px;
   border-radius: 10px;
 }
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  background: #161b22;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
