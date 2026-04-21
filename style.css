@@ -1,16 +1,43 @@
-/* ===== FONT (Anakotmai) ===== */
+/* ===== ANAKOTMAI FONT ===== */
 @font-face {
   font-family: 'Anakotmai';
-  src: url('fonts/Anakotmai-Regular.woff2') format('woff2');
-  font-weight: 400;
+  src: url('fonts/anakotmai-light.woff2') format('woff2');
+  font-weight: 300;
 }
 
 @font-face {
   font-family: 'Anakotmai';
-  src: url('fonts/Anakotmai-Bold.woff2') format('woff2');
+  src: url('fonts/anakotmai-medium.woff2') format('woff2');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Anakotmai';
+  src: url('fonts/anakotmai-bold.woff2') format('woff2');
   font-weight: 800;
 }
 
+/* ใช้ทั้งเว็บ */
+body {
+  font-family: 'Anakotmai', sans-serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-weight: 800; /* Bold */
+}
+
+h2, h3 {
+  font-weight: 500; /* Medium */
+}
+
+p {
+  font-weight: 300; /* Light */
+}
+
+.nav a {
+  font-weight: 500;
+}
 /* ===== RESET ===== */
 * {
   margin: 0;
