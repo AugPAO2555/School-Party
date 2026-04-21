@@ -99,8 +99,9 @@ window.onload = () => {
   loadPostDetail();
 
   const btn = document.getElementById("addBtn");
+
   if (btn) {
-    btn.style.display = isAdmin ? "block" : "none";
+    btn.style.display = checkAdmin() ? "block" : "none";
   }
 };
 // ===== LOGIN =====
