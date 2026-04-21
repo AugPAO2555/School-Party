@@ -1,1 +1,192 @@
- 
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0d1117;
+  color: #fff;
+}
+
+/* ===== NAVBAR ===== */
+.nav {
+  background: #111;
+  color: #FFE70F;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+.nav h2 {
+  color: #FFE70F;
+}
+
+.nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.nav a:hover {
+  color: #FFE70F;
+}
+
+/* ===== HERO ===== */
+.hero {
+  height: 300px;
+  background: linear-gradient(rgba(0,0,0,0.7), transparent),
+              url('https://picsum.photos/1200/500');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+}
+
+.hero h1 {
+  font-size: 40px;
+  color: #FFE70F;
+}
+
+.hero p {
+  color: #1B97F9;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* ===== SECTION ===== */
+.section {
+  padding: 30px;
+}
+
+.section h2 {
+  color: #FFE70F;
+  margin-bottom: 15px;
+}
+
+/* ===== GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: #161b22;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 0 15px #1B97F9;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card p {
+  padding: 12px;
+  font-size: 14px;
+}
+
+/* ===== PROFILE PAGE ===== */
+.profile {
+  max-width: 600px;
+  margin: auto;
+  background: #161b22;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.profile img {
+  width: 180px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.profile h2 {
+  color: #FFE70F;
+}
+
+.profile h4 {
+  color: #1B97F9;
+  margin-bottom: 10px;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+  background: #FFE70F;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #1B97F9;
+  color: white;
+}
+
+/* ===== FORM ===== */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+}
+
+textarea {
+  height: 120px;
+}
+
+/* ===== DIVIDER ===== */
+hr {
+  border: 1px solid #1B97F9;
+  margin: 20px 0;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #111;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  color: #aaa;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+} 
