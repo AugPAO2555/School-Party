@@ -1,3 +1,16 @@
+/* ===== FONT (Anakotmai) ===== */
+@font-face {
+  font-family: 'Anakotmai';
+  src: url('fonts/Anakotmai-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Anakotmai';
+  src: url('fonts/Anakotmai-Bold.woff2') format('woff2');
+  font-weight: 800;
+}
+
 /* ===== RESET ===== */
 * {
   margin: 0;
@@ -6,15 +19,15 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Anakotmai', sans-serif;
   background: #0d1117;
-  color: #fff;
+  color: white;
 }
 
 /* ===== NAVBAR ===== */
 .nav {
-  background: #111;
-  color: #FFE70F;
+  background: white;
+  color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,24 +35,28 @@ body {
 }
 
 .nav h2 {
-  color: #FFE70F;
+  font-weight: 800;
 }
 
 .nav a {
-  color: white;
+  color: black;
   margin-left: 20px;
   text-decoration: none;
-  font-size: 15px;
   transition: 0.2s;
+  font-weight: 600;
 }
 
 .nav a:hover {
   color: #FFE70F;
 }
 
+.nav a.active {
+  color: #1B97F9;
+}
+
 /* ===== HERO ===== */
 .hero {
-  height: 300px;
+  height: 320px;
   background: linear-gradient(rgba(0,0,0,0.7), transparent),
               url('https://picsum.photos/1200/500');
   background-size: cover;
@@ -50,8 +67,9 @@ body {
 }
 
 .hero h1 {
-  font-size: 40px;
+  font-size: 44px;
   color: #FFE70F;
+  font-weight: 800;
 }
 
 .hero p {
@@ -85,11 +103,10 @@ body {
   text-decoration: none;
   color: white;
   transition: 0.25s;
-  cursor: pointer;
 }
 
 .card:hover {
-  transform: translateY(-5px) scale(1.02);
+  transform: translateY(-5px);
   box-shadow: 0 0 15px #1B97F9;
 }
 
@@ -101,32 +118,6 @@ body {
 
 .card p {
   padding: 12px;
-  font-size: 14px;
-}
-
-/* ===== PROFILE PAGE ===== */
-.profile {
-  max-width: 600px;
-  margin: auto;
-  background: #161b22;
-  padding: 25px;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.profile img {
-  width: 180px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
-
-.profile h2 {
-  color: #FFE70F;
-}
-
-.profile h4 {
-  color: #1B97F9;
-  margin-bottom: 10px;
 }
 
 /* ===== BUTTON ===== */
@@ -136,9 +127,8 @@ body {
   padding: 10px 15px;
   border-radius: 8px;
   display: inline-block;
-  margin-top: 10px;
-  font-weight: bold;
-  transition: 0.2s;
+  margin-top: 15px;
+  font-weight: 700;
 }
 
 .btn:hover {
@@ -146,32 +136,26 @@ body {
   color: white;
 }
 
-/* ===== FORM ===== */
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 8px;
-}
-
-textarea {
-  height: 120px;
-}
-
-/* ===== DIVIDER ===== */
-hr {
-  border: 1px solid #1B97F9;
-  margin: 20px 0;
-}
-
 /* ===== FOOTER ===== */
 .footer {
-  background: #111;
-  text-align: center;
-  padding: 20px;
-  margin-top: 30px;
-  color: #aaa;
+  background: #0b3c5d;
+  padding: 40px 20px;
+}
+
+.footer h2 {
+  margin-bottom: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  color: #ddd;
+}
+
+.contact-item img {
+  width: 24px;
+  margin-right: 10px;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -185,56 +169,4 @@ hr {
   .grid {
     grid-template-columns: 1fr;
   }
-
-  .hero h1 {
-    font-size: 28px;
-  }
-} 
-/* ACCORDION */
-.accordion {
-  width: 100%;
-  background: #161b22;
-  color: #FFE70F;
-  padding: 15px;
-  margin-top: 10px;
-  border: none;
-  text-align: left;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.panel {
-  background: #0d1117;
-  display: none;
-  padding: 15px;
-  border-left: 3px solid #1B97F9;
-}
-/* POPUP */
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
-  display: none;
-}
-
-.popup-content {
-  background: #161b22;
-  padding: 20px;
-  margin: 10% auto;
-  width: 300px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.popup img {
-  width: 120px;
-  border-radius: 10px;
-}
-
-.close {
-  float: right;
-  cursor: pointer;
 }
